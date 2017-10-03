@@ -1,29 +1,17 @@
 var assert = require('assert');
 var equal = require('assert-dir-equal');
 var Metalsmith = require('metalsmith');
-var sitemap = require('..');
+var podcast = require('..');
 
-describe('metalsmith-sitemap', function(){
+describe('metalsmith-podcast', function(){
   it('should only process html by default', function(done){
     Metalsmith('test/fixtures/html')
-      .use(sitemap('http://www.website.com/'))
+      .use(podcast('http://www.website.com/'))
       .build(function(err){
         if (err) {
           return done(err);
         }
         equal('test/fixtures/html/expected', 'test/fixtures/html/build');
-        done();
-      });
-  });
-
-  it('should accept a string as the hostname', function(done){
-    Metalsmith('test/fixtures/hostname')
-      .use(sitemap('http://www.website.com/'))
-      .build(function(err){
-        if (err) {
-          return done(err);
-        }
-        equal('test/fixtures/hostname/expected', 'test/fixtures/hostname/build');
         done();
       });
   });

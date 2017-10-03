@@ -1,7 +1,7 @@
 {
-  "name": "metalsmith-sitemap",
-  "version": "1.2.0",
-  "description": "A metalsmith plugin for generating a sitemap.xml file.",
+  "name": "metalsmith-podcast",
+  "version": "0.0.1",
+  "description": "A metalsmith plugin for generating a podcast feed (XML) file.",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test"
@@ -12,22 +12,19 @@
   },
   "keywords": [
     "metalsmith",
-    "sitemap"
+    "podcast",
+    "feed",
+    "xml"
   ],
   "author": {
     "name": "Andreas Virkus",
-    "url": "https://andreasvirkus.github.io/metalsmith-podcast"
+    "url": "https://andreasvirkus.me"
   },
-  "contributors": [
-    {
-      "name": "Aaron Boushley"
-    }
-  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ExtraHop/metalsmith-sitemap/issues"
+    "url": "https://github.com/andreasvirkus/metalsmith-podcast/issues"
   },
-  "homepage": "https://github.com/ExtraHop/metalsmith-sitemap",
+  "homepage": "https://andreasvirkus.github.io/metalsmith-podcast",
   "dependencies": {
     "is": "^3.0.1",
     "lodash.get": "^3.7.0",
