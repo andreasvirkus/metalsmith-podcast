@@ -1,15 +1,15 @@
-# metalsmith-sitemap
+# metalsmith-podcast
 [![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 
-> A metalsmith plugin for generating a sitemap
+> A metalsmith plugin for generating a podcast feed
 
-This plugin allows you to generate a [sitemap.xml](http://www.sitemaps.org/protocol.html) from your source files. By default it looks for any `.html` files and processes them with [sitemap.js](https://github.com/ekalinin/sitemap.js).
+This plugin allows you to generate a [podcast feed]() from your source files. By default it looks for any `.html` files and processes them with [node-podcast](https://github.com/maxnowack/node-podcast).
 
 ## Installation
 
 ```bash
-$ npm install metalsmith-sitemap
+$ npm install metalsmith-podcast
 ```
 
 ## Example
@@ -28,116 +28,75 @@ Configuration in `metalsmith.json`:
 
 ## Options
 
-You can pass options to `metalsmith-sitemap` with the [Javascript API](https://github.com/segmentio/metalsmith#api) or [CLI](https://github.com/segmentio/metalsmith#cli). The options are:
+You can pass options to `metalsmith-podcast` with the [Javascript API](https://github.com/segmentio/metalsmith#api) or [CLI](https://github.com/segmentio/metalsmith#cli). The options are the same as described under [node-podcast](https://github.com/maxnowack/node-podcast#feedoptions):
 
-##### hostname
-
-* `required`
-
-The hostname used for generating the urls.
-
-##### changefreq
-
-* `optional`
-* `default: weekly`
-
-Change the default [changefreq](http://www.sitemaps.org/protocol.html).
-
-##### pattern
-
-* `optional`
-* `default: '**/*.html'`
-
-A [multimatch](https://github.com/sindresorhus/multimatch) pattern. Only files that match this pattern will be included in the sitemap. Can be a string or an array of strings.
-
-##### priority
-
-* `optional`
-* `default: '0.5'`
-
-Change the default [priority](http://www.sitemaps.org/protocol.html).
-
-##### output
-
-* `optional`
-* `default: 'sitemap.xml'`
-
-Change the output file for the sitemap.
-
-##### lastmod
-
-* `optional`
-
-Add a lastmodified date to the sitemap. Should be a Date object and can be passed through the Javascript API or the frontmatter.
-
-##### links
-
-* `optional`
-
-Allows you to define [alternate language pages](https://github.com/ekalinin/sitemap.js#example-of-indicating-alternate-language-pages). This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
-
-##### omitExtension
-
-* `optional`
-* `default: false`
-
-Will remove extensions from the urls in the sitemap. Useful when you're rewriting urls.
-
-##### omitIndex
-
-* `optional`
-* `default: false`
-
-Will replace any paths ending in `index.html` with `''`. Useful when you're using [metalsmith-permalinks](https://github.com/segmentio/metalsmith-permalinks).
-
-##### modifiedProperty
-
-* `optional`
-* `default: lastmod`
-
-Allows you to choose which property to use as the last modified string. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
-
-##### urlProperty
-
-* `optional`
-* `default: canonical`
-
-Allows you to choose which property to use as the canonical url in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
-
-##### privateProperty
-
-* `optional`
-* `default: private`
-
-Allows you to choose which property to use for ignoring a file in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
-
-##### priorityProperty
-
-* `optional`
-* `default: priority`
-
-Allows you to choose which property to use for your sitemap priority in the frontmatter. This accepts nested properties in dot notation via [lodash.get](https://lodash.com/docs#get).
-
+ * `title` **string** Title of your site or feed
+ * `description` _optional_ **string** A short description of the feed.
+ * `generator` _optional_  **string** Feed generator.
+ * `feed_url` **url string** Url to the rss feed.
+ * `site_url` **url string** Url to the site that the feed is for.
+ * `image_url` _optional_  **url string* Small image for feed readers to use.
+ * `docs` _optional_ **url string** Url to documentation on this feed.
+ * `author` **string** Who owns this feed.
+ * `managingEditor` _optional_ **string** Who manages content in this feed.
+ * `webMaster` _optional_ **string** Who manages feed availability and technical support.
+ * `copyright` _optional_ **string** Copyright information for this feed.
+ * `language` _optional_ **string**  The language of the content of this feed.
+ * `categories` _optional_ **array of strings**  One or more categories this feed belongs to.
+ * `pubDate` _optional_ **Date object or date string** The publication date for content in the feed
+ * `ttl` _optional_ **integer** Number of minutes feed can be cached before refreshing from source.
+ * `itunesAuthor` _optional_  **string** (iTunes specific) author of the podcast
+ * `itunesSubtitle` _optional_  **string** (iTunes specific) subtitle for iTunes listing
+ * `itunesSummary` _optional_  **string** (iTunes specific) summary for iTunes listing
+ * `itunesOwner` _optional_ **object** (iTunes specific) owner of the podcast ( {name:String, email:String} )
+ * `itunesExplicit` _optional_ **boolean** (iTunes specific) specifies if the podcast contains explicit content
+ * `itunesCategory` _optional_ **array of objects** (iTunes specific) Categories for iTunes ( [{text:String, subcats:[{text:String, subcats:Array}]}] )
+ * `itunesImage` _optional_ **string** (iTunes specific) link to an image for the podcast
 
 ## Frontmatter
 
 Some values can also be set on a file-to-file basis from a file's frontmatter, the options are:
 
-* `canonical`: will override the filename used to generate the url. The path is relative to the hostname.
-* `changefreq`: will override any other settings for `changefreq` for the current file.
-* `lastmod`: will override any other settings for `lastmod` for the current file.
-* `priority`: will override any other settings for `priority` for the current file.
-* `private`: will exclude the file from the sitemap when set to true.
+* `title` **string** Title of this particular item.
+* `description` **string** Content for the item.  Can contain html but link and image urls must be absolute path including hostname.
+* `url` **url string** Url to the item. This could be a blog entry.
+* `guid` **unique string** A unique string feed readers use to know if an item is new or has already been seen.
+If you use a guid never change it.  If you don't provide a guid then your item urls must
+be unique.
+* `categories` _optional_ **array of strings** If provided, each array item will be added as a category element
+* `author` _optional_  **string**  If included it is the name of the item's creator.
+If not provided the item author will be the same as the feed author.  This is typical
+except on multi-author blogs.
+* `date` **Date object or date string** The date and time of when the item was created.  Feed
+readers use this to determine the sort order. Some readers will also use it to determine
+if the content should be presented as unread.
+* `lat` _optional_ **number** The latitude coordinate of the item.
+* `long` _optional_ **number** The longitude coordinate of the item.
+* `enclosure` _optional_ **object** Attach a multimedia file to this item.
+* `url` **string** Url to the related file.
+* `file` _optional_ **string** Path to the related file on the filesystem. Used to fill out size and mime
+information.
+* `size` _optional_ **number** Number of bytes in the file. The length field will defualt to 0 if the
+`size` or `file` fields have not been set.
+* `mime` _optional_ **string** Mime type of the file. Will be guessed from the url if this parameter is
+not set.
+* `explicit` _optional_ **boolean** (iTunes specific) specifies if the podcast contains explicit content
+* `subtitle` _optional_  **string** (iTunes specific) subtitle for iTunes listing
+* `duration` _optional_ **number** (iTunes specific) duration of the podcast item in seconds
 
 For example:
 
 ```html
 ---
-canonical: 'different'
-changefreq: always
-lastmod: 2014-12-01
-priority: 1.0
 private: true
+title: 'Episode title'
+description: 'Episode content. It can include html.'
+url: 'http://example.com/episode4?this&that'
+categories: ['javascript', 'podcast']
+author: 'Bruce Banner'
+date: 'May 9, 2017'
+explicit: false
+duration: 12345
 ---
 <!-- index.html -->
 ```
