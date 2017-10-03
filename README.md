@@ -106,8 +106,8 @@ duration: 12345
 MIT
 
 
-[npm-badge]: https://img.shields.io/npm/v/metalsmith-sitemap.svg
-[npm-url]: https://www.npmjs.com/package/metalsmith-sitemap
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-podcast.svg
+[npm-url]: https://www.npmjs.com/package/metalsmith-podcast
 
 [travis-badge]: https://travis-ci.org/ExtraHop/metalsmith-sitemap.svg?branch=master
 [travis-url]: https://travis-ci.org/ExtraHop/metalsmith-sitemap
