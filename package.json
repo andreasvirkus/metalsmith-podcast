@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ExtraHop/metalsmith-sitemap.git"
+    "url": "https://github.com/andreasvirkus/metalsmith-podcast.git"
   },
   "keywords": [
     "metalsmith",
     "sitemap"
   ],
   "author": {
-    "name": "ExtraHop Networks",
-    "url": "http://www.extrahop.com"
+    "name": "Andreas Virkus",
+    "url": "https://andreasvirkus.github.io/metalsmith-podcast"
   },
   "contributors": [
     {
@@ -31,11 +31,8 @@
   "dependencies": {
     "is": "^3.0.1",
     "lodash.get": "^3.7.0",
-    "lodash.identity": "^3.0.0",
-    "lodash.pick": "^3.1.0",
     "multimatch": "^2.0.0",
-    "sitemap": "^1.1.1",
-    "string": "^3.3.1"
+    "podcast": "^0.2.2"
   },
   "devDependencies": {
     "assert-dir-equal": "^1.0.1",
