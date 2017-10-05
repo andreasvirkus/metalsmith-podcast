@@ -117,5 +117,5 @@ MIT
 [npm-badge]: https://img.shields.io/npm/v/metalsmith-podcast.svg
 [npm-url]: https://www.npmjs.com/package/metalsmith-podcast
 
-[travis-badge]: https://travis-ci.org/ExtraHop/metalsmith-sitemap.svg?branch=master
-[travis-url]: https://travis-ci.org/ExtraHop/metalsmith-sitemap
+[travis-badge]: https://travis-ci.org/andreasvirkus/metalsmith-podcast.svg?branch=master
+[travis-url]: https://travis-ci.org/andreasvirkus/metalsmith-podcast
