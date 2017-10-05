@@ -23,10 +23,11 @@ describe('metalsmith-podcast', function(){
 
   it('should accept defaults for title and feed url', function(done){
     Metalsmith('test/fixtures/defaults')
-      .use(sitemap({
+      .use(podcast({
         title: 'Test podcast',
         site_url: 'http://www.website.com/',
         feed_url: '/podcast.xml',
+        author: 'Bruce Banner',
       }))
       .build(function(err){
         if (err) {
@@ -130,7 +131,12 @@ describe('metalsmith-podcast', function(){
 
   it('should ignore files marked as private', function(done){
     Metalsmith('test/fixtures/private')
-      .use(sitemap('http://www.website.com/'))
+      .use(podcast({
+        title: 'Test podcast',
+        site_url: 'http://www.website.com/',
+        feed_url: '/podcast.xml',
+        author: 'Bruce Banner',
+      }))
       .build(function(err){
         if (err) {
           return done(err);
