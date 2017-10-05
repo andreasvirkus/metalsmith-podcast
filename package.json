@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-podcast",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A metalsmith plugin for generating a podcast feed (XML) file.",
   "main": "lib/index.js",
   "scripts": {

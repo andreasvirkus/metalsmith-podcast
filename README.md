@@ -103,6 +103,12 @@ duration: 12345
 <!-- index.html -->
 ```
 
+## Roadmap
+
+- Let `node-podcast` handle default options instead of passing all options to it with default values (loop through `opts` object and set only those that exist)
+- Test coverage
+- Docs site
+
 ## License
 
 MIT
