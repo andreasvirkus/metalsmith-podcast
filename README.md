@@ -4,7 +4,7 @@
 
 > A metalsmith plugin for generating a podcast feed
 
-This plugin allows you to generate a [podcast feed]() from your source files. By default it looks for any `.html` files and processes them with [node-podcast](https://github.com/maxnowack/node-podcast).
+This plugin allows you to generate a [podcast feed](https://resourcecenter.odee.osu.edu/digital-media-production/how-write-podcast-rss-xml) from your source files. By default it looks for any `.html` files and processes them with [node-podcast](https://github.com/maxnowack/node-podcast).
 
 ## Installation
 
@@ -19,8 +19,10 @@ Configuration in `metalsmith.json`:
 ```json
 {
   "plugins": {
-    "metalsmith-sitemap": {
-      "hostname": "http://www.website.com"
+    "metalsmith-podcast": {
+      "title": "My podcast",
+      "description": "A short overview of the podcast series.",
+      "feed_url": ""
     }
   }
 }
