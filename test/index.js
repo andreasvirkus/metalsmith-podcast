@@ -8,8 +8,8 @@ describe('metalsmith-podcast', function(){
     Metalsmith('test/fixtures/html')
       .use(podcast({
         title: 'Test podcast',
-        site_url: 'http://www.website.com/',
-        feed_url: '/podcast.xml',
+        siteUrl: 'http://www.website.com/',
+        feedUrl: 'http://www.website.com/podcast.xml',
         author: 'Bruce Banner',
       }))
       .build(function(err){
@@ -25,8 +25,8 @@ describe('metalsmith-podcast', function(){
     Metalsmith('test/fixtures/defaults')
       .use(podcast({
         title: 'Test podcast',
-        site_url: 'http://www.website.com/',
-        feed_url: '/podcast.xml',
+        siteUrl: 'http://www.website.com/',
+        feedUrl: '/podcast.xml',
         author: 'Bruce Banner',
       }))
       .build(function(err){
@@ -42,8 +42,8 @@ describe('metalsmith-podcast', function(){
   //   Metalsmith('test/fixtures/frontmatter')
   //     .use(sitemap({
   //       title: 'Test podcast',
-  //       site_url: 'http://www.website.com',
-  //       feed_url: '/podcast.xml',
+  //       siteUrl: 'http://www.website.com',
+  //       feedUrl: '/podcast.xml',
   //       pubDate: new Date()
   //     }))
   //     .build(function(err){
@@ -59,7 +59,7 @@ describe('metalsmith-podcast', function(){
   //   Metalsmith('test/fixtures/output')
   //     .use(sitemap({
   //       title: 'Test podcast',
-  //       feed_url: 'castpod.xml'
+  //       feedUrl: 'castpod.xml'
   //     }))
   //     .build(function(err){
   //       if (err) {
@@ -133,8 +133,8 @@ describe('metalsmith-podcast', function(){
     Metalsmith('test/fixtures/private')
       .use(podcast({
         title: 'Test podcast',
-        site_url: 'http://www.website.com/',
-        feed_url: '/podcast.xml',
+        siteUrl: 'http://www.website.com/',
+        feedUrl: '/podcast.xml',
         author: 'Bruce Banner',
       }))
       .build(function(err){
@@ -154,7 +154,7 @@ describe('metalsmith-podcast', function(){
   //       author: 'Peter Parker',
   //       description: 'Spider pig and his funky adventures.',
   //       categories: ['spiders', 'webs', 'not web like internet'],
-  //       image_url: '/spidey.jpeg'
+  //       imageUrl: '/spidey.jpeg'
   //     }))
   //     .build(function(err){
   //       if (err) {
