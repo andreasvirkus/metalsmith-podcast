@@ -11,6 +11,7 @@ describe('metalsmith-podcast', function(){
         siteUrl: 'http://www.website.com/',
         feedUrl: 'http://www.website.com/podcast.xml',
         author: 'Bruce Banner',
+        pubDate: new Date('1995-12-17T12:24:00')
       }))
       .build(function(err){
         if (err) {
@@ -28,6 +29,7 @@ describe('metalsmith-podcast', function(){
         siteUrl: 'http://www.website.com/',
         feedUrl: '/podcast.xml',
         author: 'Bruce Banner',
+        pubDate: new Date('2015-12-17T12:24:00')
       }))
       .build(function(err){
         if (err) {
@@ -85,18 +87,6 @@ describe('metalsmith-podcast', function(){
   //     });
   // });
 
-  // it('should allow a canonical url to be set', function(done){
-  //   Metalsmith('test/fixtures/canonical')
-  //     .use(sitemap('http://www.website.com/'))
-  //     .build(function(err){
-  //       if (err) {
-  //         return done(err);
-  //       }
-  //       equal('test/fixtures/canonical/expected', 'test/fixtures/canonical/build');
-  //       done();
-  //     });
-  // });
-
   // it('should allow publishing date to be set', function(done){
   //   Metalsmith('test/fixtures/lastmod')
   //     .use(sitemap({
@@ -112,22 +102,6 @@ describe('metalsmith-podcast', function(){
   //     });
   // });
 
-  // it('should allow a canonical url, lastmod and priority to be set from custom property', function(done){
-  //   Metalsmith('test/fixtures/custom-frontmatter')
-  //     .use(sitemap({
-  //       hostname: 'http://www.website.com',
-  //       modifiedProperty: 'lastModified',
-  //       urlProperty: 'seo.canonical',
-  //       priorityProperty: 'order'
-  //     }))
-  //     .build(function(err){
-  //       if (err) {
-  //         return done(err);
-  //       }
-  //       equal('test/fixtures/custom-frontmatter/expected', 'test/fixtures/custom-frontmatter/build');
-  //       done();
-  //     });
-  // });
 
   it('should ignore files marked as private', function(done){
     Metalsmith('test/fixtures/private')
@@ -161,18 +135,6 @@ describe('metalsmith-podcast', function(){
   //         return done(err);
   //       }
   //       equal('test/fixtures/itunes/expected', 'test/fixtures/itunes/build');
-  //       done();
-  //     });
-  // });
-
-  // it('should replace win32 backslash by slash', function(done){
-  //   Metalsmith('test/fixtures/win32-backslash')
-  //     .use(sitemap('http://www.website.com/'))
-  //     .build(function(err){
-  //       if (err) {
-  //         return done(err);
-  //       }
-  //       equal('test/fixtures/win32-backslash/expected', 'test/fixtures/win32-backslash/build');
   //       done();
   //     });
   // });

@@ -3,11 +3,12 @@
 	<channel>
 		<title><![CDATA[Test podcast]]></title>
 		<description><![CDATA[A podcast about interesting topics.]]></description>
-		<link>http://github.com/dylang/node-rss</link>
+		<link>http://www.website.com/</link>
 		<generator>Podcast for Node</generator>
-		<lastBuildDate>Thu, 05 Oct 2017 19:30:20 GMT</lastBuildDate>
-		<atom:link href="/podcast.xml" rel="self" type="application/rss+xml"/>
+		<lastBuildDate>Sun, 27 Oct 2019 09:44:35 GMT</lastBuildDate>
+		<atom:link href="http://www.website.com/podcast.xml" rel="self" type="application/rss+xml"/>
 		<author><![CDATA[Bruce Banner]]></author>
+		<pubDate>Sun, 17 Dec 1995 10:24:00 GMT</pubDate>
 		<language><![CDATA[EN-US]]></language>
 		<ttl>60</ttl>
 		<category><![CDATA[podcast]]></category>
